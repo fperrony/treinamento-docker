@@ -1,0 +1,15 @@
+---
+version: '3.8'
+services:
+  php-cli:
+    image: cloud.canister.io:5000/fperrony/php-cli-dev:8.1
+    volumes:
+      - ./:/opt/project
+    user: ${FCPLUSER-root}
+    working_dir: /opt/project
+    environment:
+      TZ: ${TZ-America/Sao_Paulo}
+networks:
+  default:
+    name: app
+    external: true

@@ -1,0 +1,19 @@
+doctrine:
+  orm:
+    isDevMode: false
+    paths:
+      - APP_PATH/vendor/ixcsfot/treinamento-docker-domain/src/Entity
+    proxyDir: APP_PATH/var/doctrine/proxy
+  dbal:
+    primaryReplica: false
+    driver: pdo_pgsql
+    user: postgres
+    password: password
+    host: 127.0.0.1
+    dbname: testdb
+    application_name: app
+  cache:
+    metadata: redis://127.0.0.1:6379
+    query: memcached://127.0.0.1:11211
+    result: filesystem
+    hydration: apcu

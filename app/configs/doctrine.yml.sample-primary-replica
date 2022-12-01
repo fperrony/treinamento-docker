@@ -1,0 +1,33 @@
+doctrine:
+  orm:
+    isDevMode: false
+    paths:
+      - ../../vendor/ixcsfot/treinamento-docker-domain/src/Entity
+    proxyDir: APP_PATH/var/doctrine/proxy
+  dbal:
+    primaryReplica: true
+    driver: pdo_pgsql
+    primary:
+      user: primaryuser
+      password: password
+      host: primary
+      dbname: testdb
+      application_name: app_primary
+    replica:
+      0:
+        user: testuser
+        password: password
+        host: replica1
+        dbname: testdb
+        application_name: app_replica1
+      1:
+        user: testuser
+        password: password
+        host: replica2
+        dbname: testdb
+        application_name: app_replica2
+  cache:
+    metadata: redis://127.0.0.1:6379
+    query: memcached://127.0.0.1:11211
+    result: filesystem
+    hydration: apcu

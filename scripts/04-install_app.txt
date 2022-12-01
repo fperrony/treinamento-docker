@@ -1,0 +1,44 @@
+mkdir .ssh
+ssh-keygen
+eval $(ssh-agent -s)
+ssh-add -l
+ssh-add ~/.ssh/id_rsa
+ssh-add -l
+cat .ssh/id_rsa.pub
+cd ..
+
+#### CLONE
+
+#git clone https://gitlab.ixcsoft.com.br/prog86/treinamento-docker.git
+git clone git@gitlab.ixcsoft.com.br:prog86/treinamento-docker.git
+
+#scp -r app/* treinamento@192.168.56.101:/home/treinamento/app
+
+#### Install
+
+cd treinamento-docker/app
+composer install -vvv
+
+#### Configur APP
+
+cd configs
+
+cp slim.yml.sample slim.yml
+nano slim.yml
+
+cp session.ini.sample session.ini
+nano session.ini
+
+cp cache.yml.sample cache.yml
+nano cache.yml
+
+cp doctrine.yml.sample doctrine.yml
+nano doctrine.yml
+
+#### Run app
+
+cd ..
+php -S 0.0.0.0:8080 -t public
+
+http://192.168.56.101:8080/
+

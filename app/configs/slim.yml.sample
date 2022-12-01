@@ -1,0 +1,4 @@
+slim:
+  displayErrorDetails: false
+  logErrors: false
+  logErrorDetails: false
