@@ -1,7 +1,0 @@
-/.idea/
-/composer.lock
-/var/
-/vendor/
-/.phpunit.cache/
-/configs/*.yml
-/configs/*.ini

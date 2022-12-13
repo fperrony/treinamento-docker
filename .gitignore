@@ -1,0 +1,12 @@
+/.idea/
+/app/.idea/
+/app/.phpunit.cache/
+/app/composer.lock
+/app/var/
+/app/vendor/
+/.phpunit.cache/
+/app/configs/*.yml
+/app/configs/*.ini
+/domain/.idea/
+/domain/.phpunit.cache/
+/domain/vendor/
