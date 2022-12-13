@@ -8,7 +8,7 @@ use Doctrine\DBAL\Exception;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
-use IXCSoft\TreinamentoDocker\Domain\EntityManagerFactory;
+use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\EntityManagerFactory;
 use RedisException;
 
 trait Schema

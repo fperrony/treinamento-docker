@@ -11,14 +11,13 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "IXCSoft\\TreinamentoDocker\\Application\\Tests\\Integration\\": "tests/integration",
       "IXCSoft\\TreinamentoDocker\\Application\\Tests\\Unit\\": "tests/unit"
     }
   },
   "repositories": [
     {
       "type": "path",
-      "url": "../domain"
+      "url": "../treinamento-docker-domain"
     }
   ],
   "require": {
@@ -36,7 +35,6 @@
     "pimple/pimple": "3.5.*",
     "slim/psr7": "1.6.*",
     "slim/slim": "4.11.*",
-    "symfony/cache": "6.1.*",
     "symfony/yaml": "6.1.*"
   },
   "require-dev": {

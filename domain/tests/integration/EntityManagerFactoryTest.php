@@ -7,7 +7,6 @@ namespace IXCSoft\TreinamentoDocker\Domain\Tests\Integration;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Exception\ORMException;
-use IXCSoft\TreinamentoDocker\Domain\EntityManagerFactory;
 use PHPUnit\Framework\TestCase;
 use RedisException;
 

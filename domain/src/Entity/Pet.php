@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace IXCSoft\TreinamentoDocker\Domain\Entity;
 
-use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;

@@ -2,7 +2,7 @@ doctrine:
   orm:
     isDevMode: false
     paths:
-      - ../../vendor/ixcsfot/treinamento-docker-domain/src/Entity
+      - APP_PATH/vendor/ixcsfot/treinamento-docker-domain/src/Entity
     proxyDir: APP_PATH/var/doctrine/proxy
   dbal:
     primaryReplica: true

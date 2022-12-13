@@ -15,13 +15,12 @@ use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
 use IXCSoft\TreinamentoDocker\Application\Fixtures\OwnerDataFixture;
 use IXCSoft\TreinamentoDocker\Application\Fixtures\PetDataFixture;
-use IXCSoft\TreinamentoDocker\Domain\EntityManagerFactory;
+use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\EntityManagerFactory;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use RedisException;
 
 final class CreateDatabaseController
 {
@@ -37,14 +36,12 @@ final class CreateDatabaseController
     }
 
     /**
-     * @throws RedisException
      * @throws ORMException
      * @throws Exception
      * @throws ToolsException
      */
     public function createDatabaseAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        EntityManagerFactory::resetInstance();
         $this->dropSchema();
         $this->createSchema();
         $response->getBody()->write("Database created!");

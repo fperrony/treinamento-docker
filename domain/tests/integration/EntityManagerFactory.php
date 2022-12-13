@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-namespace IXCSoft\TreinamentoDocker\Domain;
+
+namespace IXCSoft\TreinamentoDocker\Domain\Tests\Integration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Connections\PrimaryReadReplicaConnection;
@@ -48,7 +49,7 @@ final class EntityManagerFactory
     {
         if (!self::$entityManagerSingleConnection instanceof EntityManager) {
             $config = ORMSetup::createAttributeMetadataConfiguration(
-                paths     : array(__DIR__ . "/../src/Entity"),
+                paths     : array(__DIR__ . "/../../src/Entity"),
                 isDevMode : true,
             );
             self::configureCache($config);
@@ -79,7 +80,7 @@ final class EntityManagerFactory
         return DriverManager::getConnection([
             'wrapperClass' => PrimaryReadReplicaConnection::class,
             'driver' => 'pdo_pgsql',
-            'primary' => ['user' => 'primaryuser', 'password' => 'password', 'host' => 'primary', 'dbname' => 'testdb'],
+            'primary' => ['user' => 'postgres', 'password' => 'password', 'host' => 'primary', 'dbname' => 'testdb'],
             'replica' => [
                 ['user' => 'testuser', 'password' => 'password', 'host' => 'replica1', 'dbname' => 'testdb'],
                 ['user' => 'testuser', 'password' => 'password', 'host' => 'replica2', 'dbname' => 'testdb'],
@@ -94,7 +95,7 @@ final class EntityManagerFactory
     {
         return DriverManager::getConnection([
             'driver' => 'pdo_pgsql',
-            'user' => 'primaryuser',
+            'user' => 'postgres',
             'password' => 'password',
             'host' => 'primary',
             'dbname' => 'testdb',

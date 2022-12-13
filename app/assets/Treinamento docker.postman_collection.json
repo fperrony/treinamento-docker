@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "13dc80e9-32c5-49e2-b3cb-1c62c8cfde68",
+		"name": "Treinamento docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22089416"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/login",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/logout",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "owner",
+			"item": [
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/owner",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/owner/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"João da Silva\",\n    \"email\": \"joao@teste.com.br\"\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/owner",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John da Silva\",\n    \"email\": \"joao@teste.com.br\"\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/owner/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John da Silva\",\n    \"email\": \"joao@teste.com.br\"\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/owner/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pet",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/pet",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/pet/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"pet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Garfield\",\n    \"breed\": 1,\n    \"owner\": 1\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/pet",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Garfield\",\n    \"breed\": 2,\n    \"owner\": 1\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/pet/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"pet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John da Silva\",\n    \"email\": \"joao@teste.com.br\"\n}"
+						},
+						"url": {
+							"raw": "{{default_url}}/pet/1",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"pet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "others",
+			"item": [
+				{
+					"name": "Create Database",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/create_database",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"create_database"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/seed",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"seed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "other",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/other",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								"other"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{default_url}}/",
+							"host": [
+								"{{default_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "default_url",
+			"value": "http://192.168.13.111:8080",
+			"type": "string"
+		},
+		{
+			"key": "remote_url",
+			"value": "https://192.168.56.101",
+			"type": "string"
+		}
+	]
+}

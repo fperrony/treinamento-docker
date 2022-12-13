@@ -8,8 +8,8 @@ use Doctrine\DBAL\Exception;
 use Doctrine\ORM\Exception\ORMException;
 use Iterator;
 use IXCSoft\TreinamentoDocker\Domain\Entity\Interfaces\Entity;
-use IXCSoft\TreinamentoDocker\Domain\EntityManagerFactory;
 use IXCSoft\TreinamentoDocker\Domain\Service\OwnerService;
+use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\EntityManagerFactory;
 use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\ServiceTestCase;
 use RedisException;
 

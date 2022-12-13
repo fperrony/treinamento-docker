@@ -10,8 +10,8 @@ use Iterator;
 use IXCSoft\TreinamentoDocker\Domain\Entity\Interfaces\Entity;
 use IXCSoft\TreinamentoDocker\Domain\Entity\Owner;
 use IXCSoft\TreinamentoDocker\Domain\Entity\Pet\Breed;
-use IXCSoft\TreinamentoDocker\Domain\EntityManagerFactory;
 use IXCSoft\TreinamentoDocker\Domain\Service\PetService;
+use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\EntityManagerFactory;
 use IXCSoft\TreinamentoDocker\Domain\Tests\Integration\ServiceTestCase;
 use RedisException;
 

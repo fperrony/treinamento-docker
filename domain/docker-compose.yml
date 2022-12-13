@@ -2,14 +2,104 @@
 version: '3.8'
 services:
   php-cli:
-    image: cloud.canister.io:5000/fperrony/php-cli-dev:8.1
+    image: domain/php-cli:latest
+    build:
+      context: ./docker/php-cli
     volumes:
       - ./:/opt/project
-    user: ${FCPLUSER-root}
+    user: "1000:1000"
     working_dir: /opt/project
     environment:
       TZ: ${TZ-America/Sao_Paulo}
+    depends_on:
+      - memcached
+      - redis
+      - primary
+      - replica1
+      - replica2
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211"
+  redis:
+    image: redis:latest
+    ports:
+      - "6379"
+  primary:
+    hostname: 'primary'
+    image: crunchydata/crunchy-postgres:centos8-13.6-4.7.5
+    environment:
+      - PGHOST=/tmp
+      - MODE=postgres
+      - MAX_CONNECTIONS=10
+      - MAX_WAL_SENDERS=5
+      - PG_MODE=primary
+      - PG_PRIMARY_USER=postgres
+      - PG_PRIMARY_PASSWORD=password
+      - PG_DATABASE=testdb
+      - PG_USER=testuser
+      - PG_PASSWORD=password
+      - PG_ROOT_PASSWORD=password
+      - PG_PRIMARY_PORT=5432
+      - LOG_STATEMENT=all
+      - LOG_MIN_DURATION_STATEMENT=0
+      - CRUNCHY_DEBUG=true
+    volumes:
+      - pg-primary-vol:/pgdata
+    ports:
+      - "5432"
+  replica1:
+    hostname: 'replica1'
+    image: crunchydata/crunchy-postgres:centos8-13.6-4.7.5
+    environment:
+      - PGHOST=/tmp
+      - MODE=postgres
+      - MAX_CONNECTIONS=10
+      - MAX_WAL_SENDERS=5
+      - PG_MODE=replica
+      - PG_PRIMARY_HOST=primary
+      - PG_PRIMARY_PORT=5432
+      - PG_PRIMARY_USER=postgres
+      - PG_PRIMARY_PASSWORD=password
+      - PG_DATABASE=testdb
+      - PG_USER=testuser
+      - PG_PASSWORD=password
+      - PG_ROOT_PASSWORD=password
+      - LOG_STATEMENT=all
+      - LOG_MIN_DURATION_STATEMENT=0
+      - CRUNCHY_DEBUG=true
+    volumes:
+      - pg-replica1-vol:/pgdata
+    ports:
+      - "5432"
+  replica2:
+    hostname: 'replica2'
+    image: crunchydata/crunchy-postgres:centos8-13.6-4.7.5
+    environment:
+      - PGHOST=/tmp
+      - MODE=postgres
+      - MAX_CONNECTIONS=10
+      - MAX_WAL_SENDERS=5
+      - PG_MODE=replica
+      - PG_PRIMARY_HOST=primary
+      - PG_PRIMARY_PORT=5432
+      - PG_PRIMARY_USER=postgres
+      - PG_PRIMARY_PASSWORD=password
+      - PG_DATABASE=testdb
+      - PG_USER=testuser
+      - PG_PASSWORD=password
+      - PG_ROOT_PASSWORD=password
+      - LOG_STATEMENT=all
+      - LOG_MIN_DURATION_STATEMENT=0
+      - CRUNCHY_DEBUG=true
+    volumes:
+      - pg-replica2-vol:/pgdata
+    ports:
+      - "5432"
 networks:
   default:
     name: app
-    external: true
+volumes:
+  pg-primary-vol:
+  pg-replica1-vol:
+  pg-replica2-vol:
